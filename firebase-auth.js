@@ -40,6 +40,32 @@ function showError(error) {
     alert(message);
 }
 
+// Función auxiliar para guardar usuario en backend (Aiven Postgres)
+async function saveUserToBackend(user) {
+    try {
+        const userData = {
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL
+        };
+
+        const response = await fetch('/api/save-user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
+
+        const result = await response.json();
+        console.log('Resultado guardado backend:', result);
+    } catch (error) {
+        console.error('Error guardando usuario en backend:', error);
+        // No bloqueamos el flujo principal si falla el guardado en BD secundaria
+    }
+}
+
 // 1. REGISTRO DE USUARIOS
 async function registerUser(email, password, name) {
     try {
@@ -50,6 +76,9 @@ async function registerUser(email, password, name) {
         await user.updateProfile({
             displayName: name
         });
+
+        // Guardar en Aiven
+        await saveUserToBackend({ ...user, displayName: name });
 
         alert(`¡Bienvenido, ${name}! Tu cuenta ha sido creada.`);
         window.location.href = 'index.html';
@@ -62,9 +91,10 @@ async function registerUser(email, password, name) {
 // 2. INICIO DE SESIÓN
 async function loginUser(email, password) {
     try {
-        await auth.signInWithEmailAndPassword(email, password);
-        // El observador onAuthStateChanged manejará la redirección si es necesario,
-        // pero para UX inmediata podemos redirigir aquí.
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
+        // Guardar/Actualizar en Aiven
+        await saveUserToBackend(userCredential.user);
+
         window.location.href = 'index.html';
     } catch (error) {
         console.error("Error en login:", error);
@@ -75,7 +105,12 @@ async function loginUser(email, password) {
 // 3. INICIO DE SESIÓN CON GOOGLE
 async function googleLogin() {
     try {
-        await auth.signInWithPopup(provider);
+        const result = await auth.signInWithPopup(provider);
+        const user = result.user;
+        
+        // Guardar en base de datos Aiven
+        await saveUserToBackend(user);
+
         window.location.href = 'index.html';
     } catch (error) {
         console.error("Error en Google login:", error);
