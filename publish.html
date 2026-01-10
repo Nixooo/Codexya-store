@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Software - Codexya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <!-- Auth Script -->
+    <script src="firebase-auth.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="codexya.png" alt="Codexya Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="search-bar">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 19L13 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <input type="text" placeholder="Buscar software, programas..." class="search-input">
+                </div>
+            </div>
+            <div class="header-right">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Descubrir</a></li>
+                        <li><a href="library.html">Mi Biblioteca</a></li>
+                        <li><a href="publish.html" class="active">Publicar</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn" aria-label="Idioma">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 2C12.5 2 14.5 4 15 6M10 18C7.5 18 5.5 16 5 14M15 6H12M15 6L13 8M5 14H8M5 14L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="cart-btn" aria-label="Carrito">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1H3L3.4 3M5 11H15L19 5H4.6M5 11L3.4 3M5 11L2.70711 13.2929C2.07714 13.9229 2.52331 15 3.41421 15H15M15 15C13.8954 15 13 15.8954 13 17C13 18.1046 13.8954 19 15 19C16.1046 19 17 18.1046 17 17C17 15.8954 16.1046 15 15 15ZM9 17C9 18.1046 8.10457 19 7 19C5.89543 19 5 18.1046 5 17C5 15.8954 5.89543 15 7 15C8.10457 15 9 15.8954 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <a href="login.html" class="user-btn" aria-label="Iniciar Sesión">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M3 18C3 14 6.5 12 10 12C13.5 12 17 14 17 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h2 class="sidebar-title">Creator Studio</h2>
+                
+                <div class="sidebar-section">
+                    <ul class="sidebar-list">
+                        <li>
+                            <a href="#" class="sidebar-link active">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 2L10 6H14L11 9L12 13L8 11L4 13L5 9L2 6H6L8 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                                Nuevo Producto
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2 6H14" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Mis Productos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 14V8L8 2L14 8V14H2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                                Ventas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="section-header">
+                <h1 class="section-header-title">Publicar Nuevo Software</h1>
+            </div>
+
+            <section class="products-section">
+                <div class="newsletter-container" style="background: var(--bg-card); text-align: left; max-width: 800px; margin: 0 auto;">
+                    <form class="publish-form" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nombre del Producto</label>
+                            <input type="text" class="search-input" placeholder="Ej: Super Video Editor" style="width: 100%;">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Descripción Corta</label>
+                            <input type="text" class="search-input" placeholder="Breve descripción para listados" style="width: 100%;">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Descripción Detallada</label>
+                            <textarea class="search-input" rows="6" placeholder="Describe todas las características..." style="width: 100%; font-family: inherit;"></textarea>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Precio ($)</label>
+                                <input type="number" class="search-input" placeholder="0.00" style="width: 100%;">
+                            </div>
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Categoría</label>
+                                <select class="filter-select" style="width: 100%; height: 42px;">
+                                    <option>Productividad</option>
+                                    <option>Diseño</option>
+                                    <option>Desarrollo</option>
+                                    <option>Seguridad</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Imágenes</label>
+                            <div style="border: 2px dashed var(--border-color); padding: var(--spacing-xl); text-align: center; border-radius: var(--radius); cursor: pointer;">
+                                <p style="color: var(--text-secondary);">Arrastra imágenes aquí o haz clic para subir</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; gap: var(--spacing-sm);">
+                            <button type="button" class="btn" style="background: transparent; border: 1px solid var(--border-color);">Guardar Borrador</button>
+                            <button type="submit" class="btn btn-add-cart">Publicar Ahora</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <img src="codexya.png" alt="Codexya Logo">
+                </div>
+                <p>Tu marketplace premium para descubrir, comprar y vender el mejor software. Únete a miles de creadores y profesionales hoy mismo.</p>
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="index.html#destacados">Destacados</a></li>
+                    <li><a href="new-arrivals.html">Novedades</a></li>
+                    <li><a href="top-sellers.html">Más Vendidos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Centro de Ayuda</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Estado del Servicio</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Política de Reembolso</a></li>
+                    <li><a href="#">Licencias</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Codexya. Todos los derechos reservados.</p>
+            <div class="payment-methods">
+                <div class="payment-icon" style="background: white; display: flex; align-items: center; justify-content: center;"><svg width="24" height="16" viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg"><path fill="#1A1F71" d="M0 0h36v24H0z"/><path fill="#F79E1B" d="M22 12c0-2.8-1.2-5.3-3.1-7 2-1.4 4.4-2.2 7.1-2.2 6.6 0 12 5.4 12 12s-5.4 12-12 12c-2.7 0-5.1-.8-7.1-2.2 1.9-1.7 3.1-4.2 3.1-7z"/><path fill="#EB001B" d="M14 12c0 2.8 1.2 5.3 3.1 7-2 1.4-4.4 2.2-7.1 2.2C3.4 21.2-2 15.8-2 9.2S3.4-2.8 10-2.8c2.7 0 5.1.8 7.1 2.2-1.9 1.7-3.1 4.2-3.1 7z"/></svg></div>
+                <div class="payment-icon" style="background: white; display: flex; align-items: center; justify-content: center;"><svg width="24" height="16" viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg"><path fill="#00579F" d="M1.6 0h32.8c.9 0 1.6.7 1.6 1.6v20.8c0 .9-.7 1.6-1.6 1.6H1.6C.7 24 0 23.3 0 22.4V1.6C0 .7.7 0 1.6 0z"/><path fill="#FFF" d="M13.8 13.8h8.4v-3.6h-8.4z"/><path fill="#F79E1B" d="M13.8 17.4h8.4v-2.4h-8.4z"/><path fill="#EB001B" d="M25.2 6.6H10.8v4.8h14.4z"/></svg></div>
+                <div class="payment-icon" style="background: white; display: flex; align-items: center; justify-content: center; font-size: 8px; color: black; font-weight: bold;">PAYPAL</div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
