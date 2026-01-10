@@ -37,7 +37,7 @@
                 <p class="auth-subtitle">Comienza tu viaje en Codexya gratis.</p>
             </div>
 
-            <form class="auth-form" action="index.html">
+            <form class="auth-form" onsubmit="event.preventDefault(); registerUser(document.getElementById('email').value, document.getElementById('password').value, document.getElementById('name').value + ' ' + document.getElementById('lastname').value);">
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="name">Nombre</label>
