@@ -173,14 +173,9 @@ function updateUserUI(user) {
                     ${user.displayName ? user.displayName[0].toUpperCase() : user.email[0].toUpperCase()}
                 </div>
             `;
-            userBtn.href = "#"; // Prevenir navegación por defecto
-            userBtn.onclick = (e) => {
-                e.preventDefault();
-                if(confirm(getTranslation('confirm_logout', { name: user.displayName || user.email }))) {
-                    logout();
-                }
-            };
-            userBtn.setAttribute('aria-label', 'Perfil de Usuario');
+            userBtn.href = "profile.html"; // Redirigir al perfil
+            userBtn.onclick = null; // Eliminar evento de logout anterior
+            userBtn.setAttribute('aria-label', getTranslation('section_profile') || 'Mi Perfil');
         } else {
             // Usuario no logueado: Restaurar botón original
             userBtn.innerHTML = `
@@ -191,7 +186,7 @@ function updateUserUI(user) {
             `;
             userBtn.href = "login.html";
             userBtn.onclick = null;
-            userBtn.setAttribute('aria-label', 'Iniciar Sesión');
+            userBtn.setAttribute('aria-label', getTranslation('auth_login') || 'Iniciar Sesión');
         }
     }
 }
