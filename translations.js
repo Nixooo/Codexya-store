@@ -370,7 +370,19 @@ const translations = {
         "faq_a_3": "Absolument. Nous utilisons un cryptage SSL de niveau bancaire pour toutes les transactions et ne stockons pas vos données de paiement.",
         "section_profile": "Mon Profil",
         "profile_details": "Détails du Compte",
-        "btn_logout": "Se Déconnecter"
+        "btn_logout": "Se Déconnecter",
+        "profile_cover_edit": "Changer de Couverture",
+        "profile_edit": "Modifier le Profil",
+        "stats_purchases": "Achats",
+        "stats_reviews": "Avis",
+        "stats_wishlist": "Liste de Souhaits",
+        "tab_activity": "Activité",
+        "tab_library": "Bibliothèque",
+        "tab_settings": "Paramètres",
+        "activity_joined": "Rejoint Codexya",
+        "activity_purchased": "Acheté",
+        "no_recent_activity": "Aucune activité récente.",
+        "member_since": "Membre depuis"
     }
 };
 

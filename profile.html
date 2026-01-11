@@ -43,7 +43,7 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <button class="icon-btn" aria-label="Idioma">
+                    <button class="icon-btn" aria-label="Idioma" id="lang-btn">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
                             <path d="M10 2C12.5 2 14.5 4 15 6M10 18C7.5 18 5.5 16 5 14M15 6H12M15 6L13 8M5 14H8M5 14L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -99,28 +99,84 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="section-header">
-                <h1 class="section-header-title" data-i18n="section_profile">Mi Perfil</h1>
+            <div class="profile-cover">
+                <button class="btn-secondary" style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.5); border: none; color: white; cursor: pointer; padding: 0.5rem 1rem; border-radius: 6px; display: flex; align-items: center; gap: 0.5rem;" data-i18n="profile_cover_edit">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    Cambiar Portada
+                </button>
+            </div>
+            
+            <div class="profile-header-modern">
+                <div class="profile-avatar-large">
+                    <span id="profile-initials-large">U</span>
+                </div>
+                <div class="profile-info-modern">
+                    <h1 id="profile-name-large">Usuario</h1>
+                    <p id="profile-email-large">usuario@ejemplo.com</p>
+                    <p class="member-since" style="color: var(--text-muted); font-size: 0.9rem;"><span data-i18n="member_since">Miembro desde</span> 2024</p>
+                </div>
+                <div class="profile-actions-modern">
+                    <button class="btn" style="background: var(--primary-color); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500;" data-i18n="profile_edit">Editar Perfil</button>
+                </div>
             </div>
 
-            <section class="profile-section" style="background: var(--card-bg); border-radius: 12px; padding: 2rem; border: 1px solid var(--border-color);">
-                <div class="profile-header" style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
-                    <div class="profile-avatar" style="width: 100px; height: 100px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; font-weight: bold;">
-                        <span id="profile-initials">U</span>
-                    </div>
-                    <div class="profile-info">
-                        <h2 id="profile-name" style="margin: 0; font-size: 1.5rem; color: var(--text-color);">Usuario</h2>
-                        <p id="profile-email" style="margin: 0.5rem 0 0; color: var(--text-muted);">usuario@ejemplo.com</p>
+            <div class="dashboard-grid">
+                <!-- Left Column: Stats & Menu -->
+                <div class="dashboard-left">
+                    <div class="dashboard-card">
+                        <h3 data-i18n="profile_details" style="margin-top: 0; margin-bottom: 1rem;">Detalles</h3>
+                        <div class="stat-row">
+                            <span data-i18n="stats_purchases">Compras</span>
+                            <span class="stat-value">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span data-i18n="stats_reviews">Reseñas</span>
+                            <span class="stat-value">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span data-i18n="stats_wishlist">Lista de Deseos</span>
+                            <span class="stat-value">0</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="profile-actions" style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
-                    <button id="logout-btn-main" class="btn" style="background-color: #ff4d4f; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                        <span data-i18n="btn_logout">Cerrar Sesión</span>
-                    </button>
+                <!-- Right Column: Tabs & Content -->
+                <div class="dashboard-right">
+                    <div class="dashboard-tabs">
+                        <button class="tab-btn active" data-tab="activity" data-i18n="tab_activity">Actividad</button>
+                        <button class="tab-btn" data-tab="library" data-i18n="tab_library">Biblioteca</button>
+                        <button class="tab-btn" data-tab="settings" data-i18n="tab_settings">Configuración</button>
+                    </div>
+
+                    <div class="tab-content active" id="tab-activity">
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon">🎉</div>
+                                <div class="activity-details">
+                                    <h4 data-i18n="activity_joined">Te uniste a Codexya</h4>
+                                    <span class="activity-date">2024</span>
+                                </div>
+                            </div>
+                            <!-- More items can be added dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="tab-library" style="display:none;">
+                         <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                            <p data-i18n="no_recent_activity">No hay actividad reciente.</p>
+                         </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-settings" style="display:none;">
+                        <div class="dashboard-card">
+                             <button id="logout-btn-main" class="btn" style="background-color: #ff4d4f; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; width: 100%; justify-content: center;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                <span data-i18n="btn_logout">Cerrar Sesión</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
         </main>
     </div>
 
@@ -202,29 +258,74 @@
             const userName = localStorage.getItem('userName') || 'Usuario';
             const userEmail = localStorage.getItem('userEmail') || 'usuario@ejemplo.com';
             
-            const nameEl = document.getElementById('profile-name');
-            const emailEl = document.getElementById('profile-email');
-            const initialsEl = document.getElementById('profile-initials');
+            const nameEl = document.getElementById('profile-name-large');
+            const emailEl = document.getElementById('profile-email-large');
+            const initialsEl = document.getElementById('profile-initials-large');
             
             if (nameEl) nameEl.textContent = userName;
             if (emailEl) emailEl.textContent = userEmail;
             if (initialsEl) initialsEl.textContent = userName.charAt(0).toUpperCase();
 
+            // Tab Switching Logic
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => {
+                        c.classList.remove('active');
+                        c.style.display = 'none';
+                    });
+
+                    // Add active class to clicked button and target content
+                    btn.classList.add('active');
+                    const targetContent = document.getElementById(`tab-${tabId}`);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                        targetContent.style.display = 'block';
+                    }
+                });
+            });
+
             // Logout functionality
             function handleLogout(e) {
                 e.preventDefault();
-                const confirmLogout = confirm(getTranslation('confirm_logout', { name: userName }));
+                // Ensure getTranslation is available
+                const msg = (typeof getTranslation === 'function') ? 
+                            getTranslation('confirm_logout', { name: userName }) : 
+                            `¿Estás seguro de que deseas cerrar sesión, ${userName}?`;
+                            
+                const confirmLogout = confirm(msg);
                 if (confirmLogout) {
-                    firebase.auth().signOut().then(() => {
-                        localStorage.removeItem('isLoggedIn');
-                        localStorage.removeItem('userName');
-                        localStorage.removeItem('userEmail');
-                        alert(getTranslation('alert_logout_success'));
-                        window.location.href = 'index.html';
-                    }).catch((error) => {
-                        console.error('Error signing out:', error);
-                    });
+                    // Try firebase signOut if available
+                    if (window.firebase && firebase.auth()) {
+                        firebase.auth().signOut().then(() => {
+                            performLogout();
+                        }).catch((error) => {
+                            console.error('Error signing out:', error);
+                            // Force logout anyway on local storage
+                            performLogout();
+                        });
+                    } else {
+                        performLogout();
+                    }
                 }
+            }
+
+            function performLogout() {
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userName');
+                localStorage.removeItem('userEmail');
+                
+                const msg = (typeof getTranslation === 'function') ? 
+                            getTranslation('alert_logout_success') : 
+                            'Has cerrado sesión exitosamente.';
+                alert(msg);
+                window.location.href = 'index.html';
             }
 
             const logoutBtnSidebar = document.getElementById('logout-btn-sidebar');
