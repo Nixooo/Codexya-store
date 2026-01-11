@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <!-- Auth Script -->
     <script src="firebase-auth.js" defer></script>
+    <script src="translations.js" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -30,15 +31,15 @@
                     <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 19L13 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <input type="text" placeholder="Buscar en mi biblioteca..." class="search-input">
+                    <input type="text" placeholder="Buscar en mi biblioteca..." class="search-input" data-i18n="search_library_placeholder">
                 </div>
             </div>
             <div class="header-right">
                 <nav class="nav">
                     <ul class="nav-list">
-                        <li><a href="index.html">Descubrir</a></li>
-                        <li><a href="library.html" class="active">Mi Biblioteca</a></li>
-                        <li><a href="publish.html">Publicar</a></li>
+                        <li><a href="index.html" data-i18n="nav_discover">Descubrir</a></li>
+                        <li><a href="library.html" class="active" data-i18n="nav_library">Mi Biblioteca</a></li>
+                        <li><a href="publish.html" data-i18n="nav_publish">Publicar</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -70,7 +71,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-content">
-                <h2 class="sidebar-title">Colección</h2>
+                <h2 class="sidebar-title" data-i18n="sidebar_collection">Colección</h2>
                 
                 <div class="sidebar-section">
                     <ul class="sidebar-list">
@@ -80,7 +81,7 @@
                                     <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
                                     <path d="M2 6H14" stroke="currentColor" stroke-width="2"/>
                                 </svg>
-                                Todo el Software
+                                <span data-i18n="sidebar_all_software">Todo el Software</span>
                             </a>
                         </li>
                         <li>
@@ -88,7 +89,7 @@
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8 2L10 6H14L11 9L12 13L8 11L4 13L5 9L2 6H6L8 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                                 </svg>
-                                Favoritos
+                                <span data-i18n="sidebar_favorites">Favoritos</span>
                             </a>
                         </li>
                         <li>
@@ -96,30 +97,30 @@
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8 3V13M8 13L4 9M8 13L12 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                Descargas Recientes
+                                <span data-i18n="sidebar_recent_downloads">Descargas Recientes</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="sidebar-section">
-                    <h3 class="sidebar-section-title">Estado</h3>
+                    <h3 class="sidebar-section-title" data-i18n="sidebar_status">Estado</h3>
                     <ul class="sidebar-list">
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Instalado</span>
+                                <span class="sidebar-link-text" data-i18n="status_installed">Instalado</span>
                                 <span class="sidebar-count">4</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">No Instalado</span>
+                                <span class="sidebar-link-text" data-i18n="status_not_installed">No Instalado</span>
                                 <span class="sidebar-count">2</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Actualizaciones</span>
+                                <span class="sidebar-link-text" data-i18n="status_updates">Actualizaciones</span>
                                 <span class="sidebar-count warning">1</span>
                             </a>
                         </li>
@@ -131,12 +132,12 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="section-header">
-                <h1 class="section-header-title">Mi Biblioteca</h1>
+                <h1 class="section-header-title" data-i18n="section_my_library">Mi Biblioteca</h1>
                 <div class="filter-group" style="margin-left: auto;">
                     <select class="filter-select">
-                        <option>Recientes</option>
-                        <option>Alfabético</option>
-                        <option>Último uso</option>
+                        <option data-i18n="filter_recent">Recientes</option>
+                        <option data-i18n="filter_alphabetical">Alfabético</option>
+                        <option data-i18n="filter_last_use">Último uso</option>
                     </select>
                 </div>
             </div>
@@ -155,11 +156,11 @@
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Software Premium Pro</h3>
-                            <p class="product-category">Adquirido el: 12 Oct 2024</p>
+                            <p class="product-category"><span data-i18n="status_acquired">Adquirido el:</span> 12 Oct 2024</p>
                             <div class="product-price">
-                                <span class="status-badge success">Instalado</span>
+                                <span class="status-badge success" data-i18n="status_installed">Instalado</span>
                             </div>
-                            <button class="btn btn-add-cart">Abrir</button>
+                            <button class="btn btn-add-cart" data-i18n="btn_open">Abrir</button>
                         </div>
                     </div>
 
@@ -174,11 +175,11 @@
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Design Suite 2024</h3>
-                            <p class="product-category">Adquirido el: 15 Nov 2024</p>
+                            <p class="product-category"><span data-i18n="status_acquired">Adquirido el:</span> 15 Nov 2024</p>
                             <div class="product-price">
-                                <span class="status-badge warning">Actualización disp.</span>
+                                <span class="status-badge warning" data-i18n="status_update_available">Actualización disp.</span>
                             </div>
-                            <button class="btn btn-add-cart">Actualizar</button>
+                            <button class="btn btn-add-cart" data-i18n="btn_update">Actualizar</button>
                         </div>
                     </div>
 
@@ -193,11 +194,11 @@
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Security Shield</h3>
-                            <p class="product-category">Adquirido el: 01 Dic 2024</p>
+                            <p class="product-category"><span data-i18n="status_acquired">Adquirido el:</span> 01 Dic 2024</p>
                             <div class="product-price">
-                                <span class="status-badge neutral">No instalado</span>
+                                <span class="status-badge neutral" data-i18n="status_not_installed">No instalado</span>
                             </div>
-                            <button class="btn btn-add-cart">Instalar</button>
+                            <button class="btn btn-add-cart" data-i18n="btn_install">Instalar</button>
                         </div>
                     </div>
                 </div>

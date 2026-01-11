@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <!-- Auth Script -->
     <script src="firebase-auth.js" defer></script>
+    <script src="translations.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -30,15 +31,15 @@
                     <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 19L13 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <input type="text" placeholder="Buscar software, programas..." class="search-input">
+                    <input type="text" placeholder="Buscar software, programas..." class="search-input" data-i18n="search_placeholder">
                 </div>
             </div>
             <div class="header-right">
                 <nav class="nav">
                     <ul class="nav-list">
-                        <li><a href="index.html" class="active">Descubrir</a></li>
-                        <li><a href="productos.html">Mi Biblioteca</a></li>
-                        <li><a href="#publicar">Publicar</a></li>
+                        <li><a href="index.html" class="active" data-i18n="nav_discover">Descubrir</a></li>
+                        <li><a href="productos.html" data-i18n="nav_library">Mi Biblioteca</a></li>
+                        <li><a href="#publicar" data-i18n="nav_publish">Publicar</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -70,10 +71,10 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-content">
-                <h2 class="sidebar-title">Descubrir</h2>
+                <h2 class="sidebar-title" data-i18n="sidebar_discover">Descubrir</h2>
                 
                 <div class="sidebar-section">
-                    <h3 class="sidebar-section-title">Ofertas</h3>
+                    <h3 class="sidebar-section-title" data-i18n="sidebar_offers">Ofertas</h3>
                     <ul class="sidebar-list">
                         <li>
                             <a href="#" class="sidebar-link">
@@ -81,7 +82,7 @@
                                     <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2"/>
                                     <path d="M8 4V8L10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
-                                Gratis por Tiempo Limitado
+                                <span data-i18n="sidebar_offer_free">Gratis por Tiempo Limitado</span>
                             </a>
                         </li>
                         <li>
@@ -89,48 +90,48 @@
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3 8L6 11L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                En Oferta
+                                <span data-i18n="sidebar_offer_sale">En Oferta</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="sidebar-section">
-                    <h3 class="sidebar-section-title">Categorías</h3>
+                    <h3 class="sidebar-section-title" data-i18n="sidebar_categories">Categorías</h3>
                     <ul class="sidebar-list">
                         <li>
                             <a href="#" class="sidebar-link" data-category="productividad">
-                                <span class="sidebar-link-text">Productividad</span>
+                                <span class="sidebar-link-text" data-i18n="cat_productivity">Productividad</span>
                                 <span class="sidebar-count">142</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link" data-category="diseño">
-                                <span class="sidebar-link-text">Diseño</span>
+                                <span class="sidebar-link-text" data-i18n="cat_design">Diseño</span>
                                 <span class="sidebar-count">89</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link" data-category="seguridad">
-                                <span class="sidebar-link-text">Seguridad</span>
+                                <span class="sidebar-link-text" data-i18n="cat_security">Seguridad</span>
                                 <span class="sidebar-count">67</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link" data-category="análisis">
-                                <span class="sidebar-link-text">Análisis</span>
+                                <span class="sidebar-link-text" data-i18n="cat_analysis">Análisis</span>
                                 <span class="sidebar-count">54</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link" data-category="desarrollo">
-                                <span class="sidebar-link-text">Desarrollo</span>
+                                <span class="sidebar-link-text" data-i18n="cat_development">Desarrollo</span>
                                 <span class="sidebar-count">123</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link" data-category="multimedia">
-                                <span class="sidebar-link-text">Multimedia</span>
+                                <span class="sidebar-link-text" data-i18n="cat_multimedia">Multimedia</span>
                                 <span class="sidebar-count">98</span>
                             </a>
                         </li>
@@ -138,53 +139,53 @@
                 </div>
 
                 <div class="sidebar-section">
-                    <h3 class="sidebar-section-title">Tipos de Producto</h3>
+                    <h3 class="sidebar-section-title" data-i18n="sidebar_types">Tipos de Producto</h3>
                     <ul class="sidebar-list">
                         <li class="sidebar-item-expandable">
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Software</span>
+                                <span class="sidebar-link-text" data-i18n="type_software">Software</span>
                                 <span class="sidebar-count">2.7K</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link sidebar-link-nested">
-                                <span class="sidebar-link-text">Aplicaciones</span>
+                                <span class="sidebar-link-text" data-i18n="type_apps">Aplicaciones</span>
                                 <span class="sidebar-count">1.2K</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link sidebar-link-nested">
-                                <span class="sidebar-link-text">Herramientas</span>
+                                <span class="sidebar-link-text" data-i18n="type_tools">Herramientas</span>
                                 <span class="sidebar-count">850</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link sidebar-link-nested">
-                                <span class="sidebar-link-text">Plugins</span>
+                                <span class="sidebar-link-text" data-i18n="type_plugins">Plugins</span>
                                 <span class="sidebar-count">650</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link sidebar-link-nested">
-                                <span class="sidebar-link-text">Utilidades</span>
+                                <span class="sidebar-link-text" data-i18n="type_utils">Utilidades</span>
                                 <span class="sidebar-count">420</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link sidebar-link-nested">
-                                <span class="sidebar-link-text">Extensiones</span>
+                                <span class="sidebar-link-text" data-i18n="type_extensions">Extensiones</span>
                                 <span class="sidebar-count">380</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link sidebar-link-nested">
-                                <span class="sidebar-link-text">Templates</span>
+                                <span class="sidebar-link-text" data-i18n="type_templates">Templates</span>
                                 <span class="sidebar-count">290</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link sidebar-link-nested">
-                                <span class="sidebar-link-text">SDKs</span>
+                                <span class="sidebar-link-text" data-i18n="type_sdks">SDKs</span>
                                 <span class="sidebar-count">150</span>
                             </a>
                         </li>
@@ -192,35 +193,35 @@
                 </div>
 
                 <div class="sidebar-section">
-                    <h3 class="sidebar-section-title">Plataformas</h3>
+                    <h3 class="sidebar-section-title" data-i18n="sidebar_platforms">Plataformas</h3>
                     <ul class="sidebar-list">
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Windows</span>
+                                <span class="sidebar-link-text" data-i18n="plat_windows">Windows</span>
                                 <span class="sidebar-count">1.8K</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">macOS</span>
+                                <span class="sidebar-link-text" data-i18n="plat_macos">macOS</span>
                                 <span class="sidebar-count">1.2K</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Linux</span>
+                                <span class="sidebar-link-text" data-i18n="plat_linux">Linux</span>
                                 <span class="sidebar-count">890</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Web</span>
+                                <span class="sidebar-link-text" data-i18n="plat_web">Web</span>
                                 <span class="sidebar-count">650</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Móvil</span>
+                                <span class="sidebar-link-text" data-i18n="plat_mobile">Móvil</span>
                                 <span class="sidebar-count">520</span>
                             </a>
                         </li>
@@ -228,35 +229,35 @@
                 </div>
 
                 <div class="sidebar-section">
-                    <h3 class="sidebar-section-title">Precio</h3>
+                    <h3 class="sidebar-section-title" data-i18n="sidebar_price">Precio</h3>
                     <ul class="sidebar-list">
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Gratis</span>
+                                <span class="sidebar-link-text" data-i18n="price_free">Gratis</span>
                                 <span class="sidebar-count">340</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Menos de $10</span>
+                                <span class="sidebar-link-text" data-i18n="price_under_10">Menos de $10</span>
                                 <span class="sidebar-count">280</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">$10 - $50</span>
+                                <span class="sidebar-link-text" data-i18n="price_10_50">$10 - $50</span>
                                 <span class="sidebar-count">450</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">$50 - $100</span>
+                                <span class="sidebar-link-text" data-i18n="price_50_100">$50 - $100</span>
                                 <span class="sidebar-count">320</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Más de $100</span>
+                                <span class="sidebar-link-text" data-i18n="price_over_100">Más de $100</span>
                                 <span class="sidebar-count">180</span>
                             </a>
                         </li>
@@ -271,10 +272,10 @@
             <section class="featured-hero-row">
                 <div class="featured-hero large-banner">
                     <div class="featured-hero-content">
-                        <span class="featured-badge">DISCOVER</span>
-                        <h1 class="featured-hero-title">On Sale</h1>
-                        <p class="featured-hero-description">Encuentra las mejores ofertas en software premium por tiempo limitado.</p>
-                        <a href="productos.html" class="btn btn-featured">Shop Now</a>
+                        <span class="featured-badge" data-i18n="hero_badge">DISCOVER</span>
+                        <h1 class="featured-hero-title" data-i18n="hero_title">On Sale</h1>
+                        <p class="featured-hero-description" data-i18n="hero_desc">Encuentra las mejores ofertas en software premium por tiempo limitado.</p>
+                        <a href="productos.html" class="btn btn-featured" data-i18n="hero_btn">Shop Now</a>
                     </div>
                     <div class="hero-overlay"></div>
                 </div>
@@ -284,29 +285,29 @@
                             <div class="slider-card active">
                                 <div class="slider-thumb"></div>
                                 <div class="slider-body">
-                                    <span class="slider-label">FEATURED CONTENT</span>
+                                    <span class="slider-label" data-i18n="slider_label_featured">FEATURED CONTENT</span>
                                     <p class="slider-title">Frigid Scenes</p>
                                 </div>
                             </div>
                             <div class="slider-card">
                                 <div class="slider-thumb"></div>
                                 <div class="slider-body">
-                                    <span class="slider-label">FEATURED SELLER</span>
+                                    <span class="slider-label" data-i18n="slider_label_seller">FEATURED SELLER</span>
                                     <p class="slider-title">JustB Studios</p>
                                 </div>
                             </div>
                             <div class="slider-card">
                                 <div class="slider-thumb"></div>
                                 <div class="slider-body">
-                                    <span class="slider-label">DISCOVER</span>
-                                    <p class="slider-title">On Sale</p>
+                                    <span class="slider-label" data-i18n="slider_label_discover">DISCOVER</span>
+                                    <p class="slider-title" data-i18n="slider_title_sale">On Sale</p>
                                 </div>
                             </div>
                             <div class="slider-card">
                                 <div class="slider-thumb"></div>
                                 <div class="slider-body">
-                                    <span class="slider-label">FEATURED CONTENT</span>
-                                    <p class="slider-title">Limited-Time Free</p>
+                                    <span class="slider-label" data-i18n="slider_label_featured">FEATURED CONTENT</span>
+                                    <p class="slider-title" data-i18n="slider_title_free">Limited-Time Free</p>
                                 </div>
                             </div>
                         </div>
@@ -329,20 +330,20 @@
             <!-- Top categories pills -->
             <section class="top-categories">
                 <div class="top-categories-grid">
-                    <button class="pill active" data-category="all">Todos</button>
-                    <button class="pill" data-category="productividad">Productividad</button>
-                    <button class="pill" data-category="diseño">Diseño</button>
-                    <button class="pill" data-category="análisis">Análisis</button>
-                    <button class="pill" data-category="seguridad">Seguridad</button>
-                    <button class="pill" data-category="desarrollo">Desarrollo</button>
-                    <button class="pill" data-category="multimedia">Multimedia</button>
-                    <button class="pill" data-category="utilidades">Utilidades</button>
-                    <button class="pill" data-category="sistemas">Sistemas</button>
+                    <button class="pill active" data-category="all" data-i18n="pill_all">Todos</button>
+                    <button class="pill" data-category="productividad" data-i18n="cat_productivity">Productividad</button>
+                    <button class="pill" data-category="diseño" data-i18n="cat_design">Diseño</button>
+                    <button class="pill" data-category="análisis" data-i18n="cat_analysis">Análisis</button>
+                    <button class="pill" data-category="seguridad" data-i18n="cat_security">Seguridad</button>
+                    <button class="pill" data-category="desarrollo" data-i18n="cat_development">Desarrollo</button>
+                    <button class="pill" data-category="multimedia" data-i18n="cat_multimedia">Multimedia</button>
+                    <button class="pill" data-category="utilidades" data-i18n="cat_utils">Utilidades</button>
+                    <button class="pill" data-category="sistemas" data-i18n="cat_systems">Sistemas</button>
                 </div>
             </section>
 
             <!-- Disclaimer -->
-            <p class="disclaimer">* Los ahorros se refieren al precio más bajo ofrecido en Codexya en los últimos 30 días antes del descuento.</p>
+            <p class="disclaimer" data-i18n="disclaimer_text">* Los ahorros se refieren al precio más bajo ofrecido en Codexya en los últimos 30 días antes del descuento.</p>
 
             <!-- Trust Section -->
             <section class="trust-section">
@@ -354,8 +355,8 @@
                             </svg>
                         </div>
                         <div class="trust-text">
-                            <h3>Compra Segura</h3>
-                            <p>Pagos 100% protegidos</p>
+                            <h3 data-i18n="trust_secure">Compra Segura</h3>
+                            <p data-i18n="trust_secure_desc">Pagos 100% protegidos</p>
                         </div>
                     </div>
                     <div class="trust-item">
@@ -365,8 +366,8 @@
                             </svg>
                         </div>
                         <div class="trust-text">
-                            <h3>Descarga Instantánea</h3>
-                            <p>Acceso inmediato al archivo</p>
+                            <h3 data-i18n="trust_instant">Descarga Instantánea</h3>
+                            <p data-i18n="trust_instant_desc">Acceso inmediato al archivo</p>
                         </div>
                     </div>
                     <div class="trust-item">
@@ -398,7 +399,7 @@
             <!-- Products Section -->
             <section class="products-section">
                 <div class="section-header">
-                    <h2 class="section-header-title">Productos Destacados</h2>
+                    <h2 class="section-header-title" data-i18n="section_featured">Productos Destacados</h2>
                 </div>
                 <div class="products-grid">
                 <div class="product-card">
@@ -417,12 +418,12 @@
                                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                                 </svg>
                             </button>
-                            <button class="btn-quick-view">Vista Rápida</button>
+                            <button class="btn-quick-view" data-i18n="btn_quick_view_text">Vista Rápida</button>
                         </div>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Software Premium Pro</h3>
-                        <p class="product-category">Productividad</p>
+                        <p class="product-category" data-i18n="cat_productivity">Productividad</p>
                         <div class="product-price">
                             <span class="price">$99.99</span>
                         </div>
@@ -445,12 +446,12 @@
                                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                                 </svg>
                             </button>
-                            <button class="btn-quick-view">Vista Rápida</button>
+                            <button class="btn-quick-view" data-i18n="btn_quick_view_text">Vista Rápida</button>
                         </div>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Design Suite 2024</h3>
-                        <p class="product-category">Diseño</p>
+                        <p class="product-category" data-i18n="cat_design">Diseño</p>
                         <div class="product-price">
                             <span class="price">$149.99</span>
                         </div>
@@ -473,12 +474,12 @@
                                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                                 </svg>
                             </button>
-                            <button class="btn-quick-view">Vista Rápida</button>
+                            <button class="btn-quick-view" data-i18n="btn_quick_view_text">Vista Rápida</button>
                         </div>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Security Shield</h3>
-                        <p class="product-category">Seguridad</p>
+                        <p class="product-category" data-i18n="cat_security">Seguridad</p>
                         <div class="product-price">
                             <span class="price">$79.99</span>
                         </div>
@@ -501,12 +502,12 @@
                                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                                 </svg>
                             </button>
-                            <button class="btn-quick-view">Vista Rápida</button>
+                            <button class="btn-quick-view" data-i18n="btn_quick_view_text">Vista Rápida</button>
                         </div>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Data Analytics Pro</h3>
-                        <p class="product-category">Análisis</p>
+                        <p class="product-category" data-i18n="cat_analysis">Análisis</p>
                         <div class="product-price">
                             <span class="price">$199.99</span>
                         </div>
@@ -518,8 +519,8 @@
             <!-- New Arrivals Section -->
             <section class="products-section">
                 <div class="section-header">
-                    <h2 class="section-header-title">Recién Llegados</h2>
-                    <a href="productos.html" class="section-header-link">Ver Todo</a>
+                    <h2 class="section-header-title" data-i18n="section_new_arrivals_title">Recién Llegados</h2>
+                    <a href="productos.html" class="section-header-link" data-i18n="btn_view_all">Ver Todo</a>
                 </div>
                 <div class="products-grid">
                     <div class="product-card">
@@ -531,12 +532,12 @@
                                 </svg>
                             </div>
                             <div class="product-overlay">
-                                <button class="btn-quick-view">Vista Rápida</button>
+                                <button class="btn-quick-view" data-i18n="btn_quick_view_text">Vista Rápida</button>
                             </div>
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Cloud Manager X</h3>
-                            <p class="product-category">Sistemas</p>
+                            <p class="product-category" data-i18n="cat_systems">Sistemas</p>
                             <div class="product-price">
                                 <span class="price">$59.99</span>
                             </div>
@@ -552,12 +553,12 @@
                                 </svg>
                             </div>
                             <div class="product-overlay">
-                                <button class="btn-quick-view">Vista Rápida</button>
+                                <button class="btn-quick-view" data-i18n="btn_quick_view_text">Vista Rápida</button>
                             </div>
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Video Editor Plus</h3>
-                            <p class="product-category">Multimedia</p>
+                            <p class="product-category" data-i18n="cat_multimedia">Multimedia</p>
                             <div class="product-price">
                                 <span class="price">$129.99</span>
                             </div>
@@ -573,12 +574,12 @@
                                 </svg>
                             </div>
                             <div class="product-overlay">
-                                <button class="btn-quick-view">Vista Rápida</button>
+                                <button class="btn-quick-view" data-i18n="btn_quick_view_text">Vista Rápida</button>
                             </div>
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">DevTools Ultimate</h3>
-                            <p class="product-category">Desarrollo</p>
+                            <p class="product-category" data-i18n="cat_development">Desarrollo</p>
                             <div class="product-price">
                                 <span class="price">$89.99</span>
                             </div>
@@ -594,12 +595,12 @@
                                 </svg>
                             </div>
                             <div class="product-overlay">
-                                <button class="btn-quick-view">Vista Rápida</button>
+                                <button class="btn-quick-view" data-i18n="btn_quick_view_text">Vista Rápida</button>
                             </div>
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Network Guard</h3>
-                            <p class="product-category">Seguridad</p>
+                            <p class="product-category" data-i18n="cat_security">Seguridad</p>
                             <div class="product-price">
                                 <span class="price">$49.99</span>
                             </div>
@@ -611,8 +612,8 @@
             <!-- Newsletter Section -->
             <section class="developers-section">
             <div class="section-header">
-                <h2 class="section-header-title">Mejores Desarrolladores</h2>
-                <a href="#" class="view-all">Ver todos</a>
+                <h2 class="section-header-title" data-i18n="section_developers_title">Mejores Desarrolladores</h2>
+                <a href="#" class="view-all" data-i18n="dev_view_all">Ver todos</a>
             </div>
             <div class="developers-grid">
                 <div class="developer-card">
@@ -650,36 +651,36 @@
 
         <section class="testimonials-section">
             <div class="section-header">
-                <h2 class="section-header-title">Lo que dicen nuestros usuarios</h2>
+                <h2 class="section-header-title" data-i18n="section_testimonials_title">Lo que dicen nuestros usuarios</h2>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">"La mejor plataforma para encontrar software de calidad. El proceso de compra es súper rápido y seguro."</p>
+                    <p class="testimonial-quote" data-i18n="test_quote_1">"La mejor plataforma para encontrar software de calidad. El proceso de compra es súper rápido y seguro."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">A</div>
                         <div class="author-info">
                             <h4>Ana García</h4>
-                            <span>Diseñadora Gráfica</span>
+                            <span data-i18n="test_role_1">Diseñadora Gráfica</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">"He vendido mis plugins aquí por meses y la comunidad es increíble. Muy recomendado para desarrolladores."</p>
+                    <p class="testimonial-quote" data-i18n="test_quote_2">"He vendido mis plugins aquí por meses y la comunidad es increíble. Muy recomendado para desarrolladores."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">C</div>
                         <div class="author-info">
                             <h4>Carlos Ruiz</h4>
-                            <span>Desarrollador Web</span>
+                            <span data-i18n="test_role_2">Desarrollador Web</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">"Atención al cliente de primera. Tuve una duda con una licencia y me la resolvieron en minutos."</p>
+                    <p class="testimonial-quote" data-i18n="test_quote_3">"Atención al cliente de primera. Tuve una duda con una licencia y me la resolvieron en minutos."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">M</div>
                         <div class="author-info">
                             <h4>María López</h4>
-                            <span>Project Manager</span>
+                            <span data-i18n="test_role_3">Project Manager</span>
                         </div>
                     </div>
                 </div>
@@ -688,24 +689,24 @@
 
         <section class="faq-section">
             <div class="section-header">
-                <h2 class="section-header-title">Preguntas Frecuentes</h2>
+                <h2 class="section-header-title" data-i18n="section_faq_title">Preguntas Frecuentes</h2>
             </div>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <button class="faq-question">¿Cómo recibo mi software?</button>
-                    <div class="faq-answer">
+                    <button class="faq-question" data-i18n="faq_q_1">¿Cómo recibo mi software?</button>
+                    <div class="faq-answer" data-i18n="faq_a_1">
                         Una vez completado el pago, recibirás un correo electrónico con el enlace de descarga y tu clave de licencia inmediatamente. También estará disponible en tu biblioteca.
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">¿Ofrecen garantía de reembolso?</button>
-                    <div class="faq-answer">
+                    <button class="faq-question" data-i18n="faq_q_2">¿Ofrecen garantía de reembolso?</button>
+                    <div class="faq-answer" data-i18n="faq_a_2">
                         Sí, ofrecemos una garantía de reembolso de 30 días si el software no funciona como se describe o tiene problemas técnicos que no podemos resolver.
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">¿Es seguro comprar aquí?</button>
-                    <div class="faq-answer">
+                    <button class="faq-question" data-i18n="faq_q_3">¿Es seguro comprar aquí?</button>
+                    <div class="faq-answer" data-i18n="faq_a_3">
                         Absolutamente. Utilizamos encriptación SSL de grado bancario para todas las transacciones y no almacenamos tus datos de pago.
                     </div>
                 </div>
@@ -715,11 +716,11 @@
         <section class="newsletter-section">
                 <div class="newsletter-container">
                     <div class="newsletter-content">
-                        <h2>Mantente Actualizado</h2>
-                        <p>Suscríbete para recibir las últimas ofertas, lanzamientos y novedades de software directamente en tu bandeja de entrada.</p>
+                        <h2 data-i18n="newsletter_title">Mantente Actualizado</h2>
+                        <p data-i18n="newsletter_desc">Suscríbete para recibir las últimas ofertas, lanzamientos y novedades de software directamente en tu bandeja de entrada.</p>
                         <form class="newsletter-form">
-                            <input type="email" placeholder="Tu correo electrónico" required>
-                            <button type="submit">Suscribirse</button>
+                            <input type="email" placeholder="Tu correo electrónico" required data-i18n="newsletter_placeholder">
+                            <button type="submit" data-i18n="newsletter_btn">Suscribirse</button>
                         </form>
                     </div>
                 </div>
@@ -735,7 +736,7 @@
                 <div class="footer-logo">
                     <img src="codexya.png" alt="Codexya Logo">
                 </div>
-                <p>Tu marketplace premium para descubrir, comprar y vender el mejor software. Únete a miles de creadores y profesionales hoy mismo.</p>
+                <p data-i18n="footer_desc">Tu marketplace premium para descubrir, comprar y vender el mejor software. Únete a miles de creadores y profesionales hoy mismo.</p>
                 <div class="social-links" style="margin-top: 1rem;">
                     <a href="#" aria-label="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -753,39 +754,39 @@
             </div>
             
             <div class="footer-section">
-                <h4>Explorar</h4>
+                <h4 data-i18n="footer_explore">Explorar</h4>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="index.html#destacados">Destacados</a></li>
-                    <li><a href="new-arrivals.html">Novedades</a></li>
-                    <li><a href="top-sellers.html">Más Vendidos</a></li>
+                    <li><a href="index.html" data-i18n="footer_home">Inicio</a></li>
+                    <li><a href="productos.html" data-i18n="footer_products">Productos</a></li>
+                    <li><a href="index.html#destacados" data-i18n="footer_featured">Destacados</a></li>
+                    <li><a href="new-arrivals.html" data-i18n="footer_new_arrivals">Novedades</a></li>
+                    <li><a href="top-sellers.html" data-i18n="footer_best_sellers">Más Vendidos</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Soporte</h4>
+                <h4 data-i18n="footer_support">Soporte</h4>
                 <ul>
-                    <li><a href="#">Centro de Ayuda</a></li>
-                    <li><a href="#">Preguntas Frecuentes</a></li>
-                    <li><a href="#">Estado del Servicio</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#" data-i18n="footer_help_center">Centro de Ayuda</a></li>
+                    <li><a href="#" data-i18n="footer_faq">Preguntas Frecuentes</a></li>
+                    <li><a href="#" data-i18n="footer_status">Estado del Servicio</a></li>
+                    <li><a href="#" data-i18n="footer_contact">Contacto</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Legal</h4>
+                <h4 data-i18n="footer_legal">Legal</h4>
                 <ul>
-                    <li><a href="#">Términos de Servicio</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#">Política de Reembolso</a></li>
-                    <li><a href="#">Licencias</a></li>
+                    <li><a href="#" data-i18n="footer_terms_service">Términos de Servicio</a></li>
+                    <li><a href="#" data-i18n="footer_privacy_policy">Política de Privacidad</a></li>
+                    <li><a href="#" data-i18n="footer_refund">Política de Reembolso</a></li>
+                    <li><a href="#" data-i18n="footer_licenses">Licencias</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2024 Codexya. Todos los derechos reservados.</p>
+            <p data-i18n="footer_rights">&copy; 2024 Codexya. Todos los derechos reservados.</p>
             <div class="payment-methods">
                 <div class="payment-icon" style="background: white; display: flex; align-items: center; justify-content: center;"><svg width="24" height="16" viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg"><path fill="#1A1F71" d="M0 0h36v24H0z"/><path fill="#F79E1B" d="M22 12c0-2.8-1.2-5.3-3.1-7 2-1.4 4.4-2.2 7.1-2.2 6.6 0 12 5.4 12 12s-5.4 12-12 12c-2.7 0-5.1-.8-7.1-2.2 1.9-1.7 3.1-4.2 3.1-7z"/><path fill="#EB001B" d="M14 12c0 2.8 1.2 5.3 3.1 7-2 1.4-4.4 2.2-7.1 2.2C3.4 21.2-2 15.8-2 9.2S3.4-2.8 10-2.8c2.7 0 5.1.8 7.1 2.2-1.9 1.7-3.1 4.2-3.1 7z"/></svg></div>
                 <div class="payment-icon" style="background: white; display: flex; align-items: center; justify-content: center;"><svg width="24" height="16" viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg"><path fill="#00579F" d="M1.6 0h32.8c.9 0 1.6.7 1.6 1.6v20.8c0 .9-.7 1.6-1.6 1.6H1.6C.7 24 0 23.3 0 22.4V1.6C0 .7.7 0 1.6 0z"/><path fill="#FFF" d="M13.8 13.8h8.4v-3.6h-8.4z"/><path fill="#F79E1B" d="M13.8 17.4h8.4v-2.4h-8.4z"/><path fill="#EB001B" d="M25.2 6.6H10.8v4.8h14.4z"/></svg></div>

@@ -31,11 +31,11 @@ function showError(error) {
     let message = error.message;
     
     // Traducir errores comunes de Firebase
-    if (error.code === 'auth/user-not-found') message = 'No existe una cuenta con este correo.';
-    if (error.code === 'auth/wrong-password') message = 'Contraseña incorrecta.';
-    if (error.code === 'auth/email-already-in-use') message = 'Este correo ya está registrado.';
-    if (error.code === 'auth/weak-password') message = 'La contraseña debe tener al menos 6 caracteres.';
-    if (error.code === 'auth/invalid-email') message = 'El correo electrónico no es válido.';
+    if (error.code === 'auth/user-not-found') message = getTranslation('alert_user_not_found');
+    if (error.code === 'auth/wrong-password') message = getTranslation('alert_wrong_password');
+    if (error.code === 'auth/email-already-in-use') message = getTranslation('alert_email_in_use');
+    if (error.code === 'auth/weak-password') message = getTranslation('alert_weak_password');
+    if (error.code === 'auth/invalid-email') message = getTranslation('alert_invalid_email');
     
     alert(message);
 }
@@ -80,7 +80,7 @@ async function registerUser(email, password, name) {
         // Guardar en Aiven
         await saveUserToBackend({ ...user, displayName: name });
 
-        alert(`¡Bienvenido, ${name}! Tu cuenta ha sido creada.`);
+        alert(getTranslation('alert_welcome', { name: name }));
         window.location.href = 'index.html';
     } catch (error) {
         console.error("Error en registro:", error);
@@ -176,7 +176,7 @@ function updateUserUI(user) {
             userBtn.href = "#"; // Prevenir navegación por defecto
             userBtn.onclick = (e) => {
                 e.preventDefault();
-                if(confirm(`Hola ${user.displayName || user.email}. ¿Deseas cerrar sesión?`)) {
+                if(confirm(getTranslation('confirm_logout', { name: user.displayName || user.email }))) {
                     logout();
                 }
             };

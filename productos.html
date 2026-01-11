@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <!-- Auth Script -->
     <script src="firebase-auth.js" defer></script>
+    <script src="translations.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -30,15 +31,15 @@
                     <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 19L13 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <input type="text" placeholder="Buscar software, programas..." class="search-input">
+                    <input type="text" placeholder="Buscar software, programas..." class="search-input" data-i18n="search_placeholder">
                 </div>
             </div>
             <div class="header-right">
                 <nav class="nav">
                     <ul class="nav-list">
-                        <li><a href="index.html">Descubrir</a></li>
-                        <li><a href="productos.html" class="active">Mi Biblioteca</a></li>
-                        <li><a href="#publicar">Publicar</a></li>
+                        <li><a href="index.html" data-i18n="nav_discover">Descubrir</a></li>
+                        <li><a href="productos.html" class="active" data-i18n="nav_library">Mi Biblioteca</a></li>
+                        <li><a href="#publicar" data-i18n="nav_publish">Publicar</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -70,10 +71,10 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-content">
-                <h2 class="sidebar-title">Descubrir</h2>
+                <h2 class="sidebar-title" data-i18n="sidebar_discover">Descubrir</h2>
                 
                 <div class="sidebar-section">
-                    <h3 class="sidebar-section-title">Ofertas</h3>
+                    <h3 class="sidebar-section-title" data-i18n="sidebar_offers">Ofertas</h3>
                     <ul class="sidebar-list">
                         <li>
                             <a href="#" class="sidebar-link">
@@ -81,7 +82,7 @@
                                     <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2"/>
                                     <path d="M8 4V8L10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
-                                Gratis por Tiempo Limitado
+                                <span data-i18n="sidebar_free_limited">Gratis por Tiempo Limitado</span>
                             </a>
                         </li>
                         <li>
@@ -89,48 +90,48 @@
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3 8L6 11L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                En Oferta
+                                <span data-i18n="sidebar_on_sale">En Oferta</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="sidebar-section">
-                    <h3 class="sidebar-section-title">Categorías</h3>
+                    <h3 class="sidebar-section-title" data-i18n="sidebar_categories">Categorías</h3>
                     <ul class="sidebar-list">
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Productividad</span>
+                                <span class="sidebar-link-text" data-i18n="cat_productivity">Productividad</span>
                                 <span class="sidebar-count">142</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Diseño</span>
+                                <span class="sidebar-link-text" data-i18n="cat_design">Diseño</span>
                                 <span class="sidebar-count">89</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Seguridad</span>
+                                <span class="sidebar-link-text" data-i18n="cat_security">Seguridad</span>
                                 <span class="sidebar-count">67</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Análisis</span>
+                                <span class="sidebar-link-text" data-i18n="cat_analysis">Análisis</span>
                                 <span class="sidebar-count">54</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Desarrollo</span>
+                                <span class="sidebar-link-text" data-i18n="cat_development">Desarrollo</span>
                                 <span class="sidebar-count">123</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="sidebar-link">
-                                <span class="sidebar-link-text">Multimedia</span>
+                                <span class="sidebar-link-text" data-i18n="cat_multimedia">Multimedia</span>
                                 <span class="sidebar-count">98</span>
                             </a>
                         </li>
@@ -140,22 +141,22 @@
                 <div class="sidebar-section">
                     <h3 class="sidebar-section-title">Filtros</h3>
                     <div class="filter-group">
-                        <label for="category-filter" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Categoría:</label>
+                        <label for="category-filter" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;" data-i18n="filter_category_label">Categoría:</label>
                         <select id="category-filter" class="filter-select">
-                            <option value="all">Todas</option>
-                            <option value="productividad">Productividad</option>
-                            <option value="diseno">Diseño</option>
-                            <option value="seguridad">Seguridad</option>
-                            <option value="analisis">Análisis</option>
+                            <option value="all" data-i18n="filter_all">Todas</option>
+                            <option value="productividad" data-i18n="cat_productivity">Productividad</option>
+                            <option value="diseno" data-i18n="cat_design">Diseño</option>
+                            <option value="seguridad" data-i18n="cat_security">Seguridad</option>
+                            <option value="analisis" data-i18n="cat_analysis">Análisis</option>
                         </select>
                     </div>
                     <div class="filter-group" style="margin-top: 1rem;">
-                        <label for="sort-filter" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Ordenar por:</label>
+                        <label for="sort-filter" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;" data-i18n="filter_sort">Ordenar por:</label>
                         <select id="sort-filter" class="filter-select">
-                            <option value="featured">Destacados</option>
-                            <option value="price-low">Precio: Menor a Mayor</option>
-                            <option value="price-high">Precio: Mayor a Menor</option>
-                            <option value="name">Nombre A-Z</option>
+                            <option value="featured" data-i18n="sort_featured">Destacados</option>
+                            <option value="price-low" data-i18n="sort_price_low">Precio: Menor a Mayor</option>
+                            <option value="price-high" data-i18n="sort_price_high">Precio: Mayor a Menor</option>
+                            <option value="name" data-i18n="sort_name">Nombre A-Z</option>
                         </select>
                     </div>
                 </div>
@@ -165,7 +166,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="section-header">
-                <h1 class="section-header-title">Todos los Productos</h1>
+                <h1 class="section-header-title" data-i18n="section_all_products">Todos los Productos</h1>
             </div>
 
             <!-- Products Grid -->

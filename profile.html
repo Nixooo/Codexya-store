@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicar Software - Codexya</title>
+    <title>Mi Perfil - Codexya</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
                     <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 19L13 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <input type="text" placeholder="Buscar software, programas..." class="search-input" data-i18n="search_placeholder">
+                    <input type="text" placeholder="Buscar..." class="search-input" data-i18n="search_placeholder">
                 </div>
             </div>
             <div class="header-right">
@@ -39,7 +39,7 @@
                     <ul class="nav-list">
                         <li><a href="index.html" data-i18n="nav_discover">Descubrir</a></li>
                         <li><a href="library.html" data-i18n="nav_library">Mi Biblioteca</a></li>
-                        <li><a href="publish.html" class="active" data-i18n="nav_publish">Publicar</a></li>
+                        <li><a href="publish.html" data-i18n="nav_publish">Publicar</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -55,7 +55,7 @@
                         </svg>
                         <span class="cart-count">0</span>
                     </button>
-                    <a href="login.html" class="user-btn" aria-label="Iniciar Sesión">
+                    <a href="profile.html" class="user-btn active" aria-label="Mi Perfil">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
                             <path d="M3 18C3 14 6.5 12 10 12C13.5 12 17 14 17 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -71,33 +71,25 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-content">
-                <h2 class="sidebar-title">Creator Studio</h2>
+                <h2 class="sidebar-title" data-i18n="section_profile">Mi Perfil</h2>
                 
                 <div class="sidebar-section">
                     <ul class="sidebar-list">
                         <li>
-                            <a href="#" class="sidebar-link active">
+                            <a href="profile.html" class="sidebar-link active">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 2L10 6H14L11 9L12 13L8 11L4 13L5 9L2 6H6L8 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" stroke="currentColor" stroke-width="2"/>
                                 </svg>
-                                Nuevo Producto
+                                <span data-i18n="profile_details">Detalles de Cuenta</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link">
+                            <a href="#" class="sidebar-link" id="logout-btn-sidebar">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M2 6H14" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" fill="currentColor"/>
+                                    <path d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" fill="currentColor"/>
                                 </svg>
-                                Mis Productos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="sidebar-link">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2 14V8L8 2L14 8V14H2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                                </svg>
-                                Ventas
+                                <span data-i18n="btn_logout">Cerrar Sesión</span>
                             </a>
                         </li>
                     </ul>
@@ -108,55 +100,25 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="section-header">
-                <h1 class="section-header-title">Publicar Nuevo Software</h1>
+                <h1 class="section-header-title" data-i18n="section_profile">Mi Perfil</h1>
             </div>
 
-            <section class="products-section">
-                <div class="newsletter-container" style="background: var(--bg-card); text-align: left; max-width: 800px; margin: 0 auto;">
-                    <form class="publish-form" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nombre del Producto</label>
-                            <input type="text" class="search-input" placeholder="Ej: Super Video Editor" style="width: 100%;">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Descripción Corta</label>
-                            <input type="text" class="search-input" placeholder="Breve descripción para listados" style="width: 100%;">
-                        </div>
+            <section class="profile-section" style="background: var(--card-bg); border-radius: 12px; padding: 2rem; border: 1px solid var(--border-color);">
+                <div class="profile-header" style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+                    <div class="profile-avatar" style="width: 100px; height: 100px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; font-weight: bold;">
+                        <span id="profile-initials">U</span>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profile-name" style="margin: 0; font-size: 1.5rem; color: var(--text-color);">Usuario</h2>
+                        <p id="profile-email" style="margin: 0.5rem 0 0; color: var(--text-muted);">usuario@ejemplo.com</p>
+                    </div>
+                </div>
 
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Descripción Detallada</label>
-                            <textarea class="search-input" rows="6" placeholder="Describe todas las características..." style="width: 100%; font-family: inherit;"></textarea>
-                        </div>
-
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
-                            <div class="form-group">
-                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Precio ($)</label>
-                                <input type="number" class="search-input" placeholder="0.00" style="width: 100%;">
-                            </div>
-                            <div class="form-group">
-                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Categoría</label>
-                                <select class="filter-select" style="width: 100%; height: 42px;">
-                                    <option>Productividad</option>
-                                    <option>Diseño</option>
-                                    <option>Desarrollo</option>
-                                    <option>Seguridad</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Imágenes</label>
-                            <div style="border: 2px dashed var(--border-color); padding: var(--spacing-xl); text-align: center; border-radius: var(--radius); cursor: pointer;">
-                                <p style="color: var(--text-secondary);">Arrastra imágenes aquí o haz clic para subir</p>
-                            </div>
-                        </div>
-
-                        <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; gap: var(--spacing-sm);">
-                            <button type="button" class="btn" style="background: transparent; border: 1px solid var(--border-color);">Guardar Borrador</button>
-                            <button type="submit" class="btn btn-add-cart">Publicar Ahora</button>
-                        </div>
-                    </form>
+                <div class="profile-actions" style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+                    <button id="logout-btn-main" class="btn" style="background-color: #ff4d4f; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        <span data-i18n="btn_logout">Cerrar Sesión</span>
+                    </button>
                 </div>
             </section>
         </main>
@@ -228,5 +190,49 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check auth state
+            if (!localStorage.getItem('isLoggedIn')) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Fill user data
+            const userName = localStorage.getItem('userName') || 'Usuario';
+            const userEmail = localStorage.getItem('userEmail') || 'usuario@ejemplo.com';
+            
+            const nameEl = document.getElementById('profile-name');
+            const emailEl = document.getElementById('profile-email');
+            const initialsEl = document.getElementById('profile-initials');
+            
+            if (nameEl) nameEl.textContent = userName;
+            if (emailEl) emailEl.textContent = userEmail;
+            if (initialsEl) initialsEl.textContent = userName.charAt(0).toUpperCase();
+
+            // Logout functionality
+            function handleLogout(e) {
+                e.preventDefault();
+                const confirmLogout = confirm(getTranslation('confirm_logout', { name: userName }));
+                if (confirmLogout) {
+                    firebase.auth().signOut().then(() => {
+                        localStorage.removeItem('isLoggedIn');
+                        localStorage.removeItem('userName');
+                        localStorage.removeItem('userEmail');
+                        alert(getTranslation('alert_logout_success'));
+                        window.location.href = 'index.html';
+                    }).catch((error) => {
+                        console.error('Error signing out:', error);
+                    });
+                }
+            }
+
+            const logoutBtnSidebar = document.getElementById('logout-btn-sidebar');
+            const logoutBtnMain = document.getElementById('logout-btn-main');
+
+            if (logoutBtnSidebar) logoutBtnSidebar.addEventListener('click', handleLogout);
+            if (logoutBtnMain) logoutBtnMain.addEventListener('click', handleLogout);
+        });
+    </script>
 </body>
 </html>

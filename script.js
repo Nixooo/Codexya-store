@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
             
             // Visual feedback
-            button.textContent = '✓ Añadido';
+            button.textContent = getTranslation('btn_added');
             button.style.backgroundColor = '#4caf50';
             
             setTimeout(() => {
-                button.textContent = 'Añadir al Carrito';
+                button.textContent = getTranslation('btn_add_cart');
                 button.style.backgroundColor = '';
             }, 2000);
         });
@@ -146,8 +146,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const langBtn = document.querySelector('button[aria-label="Idioma"]');
     if (langBtn) {
         langBtn.addEventListener('click', () => {
-            alert('Cambio de idioma próximamente disponible. Actualmente solo en Español.');
+            const currentLang = localStorage.getItem('preferredLanguage') || 'es';
+            let nextLang;
+            if (currentLang === 'es') nextLang = 'en';
+            else if (currentLang === 'en') nextLang = 'fr';
+            else nextLang = 'es';
+            
+            if (typeof setLanguage === 'function') {
+                setLanguage(nextLang);
+            } else {
+                console.error('setLanguage function not found');
+            }
         });
+    }
+
+    // User Profile Button Logic
+    const userBtn = document.querySelector('.user-btn');
+    if (userBtn) {
+        if (checkAuth()) {
+            userBtn.href = 'profile.html';
+            userBtn.setAttribute('aria-label', getTranslation('section_profile') || 'Mi Perfil');
+        } else {
+            userBtn.href = 'login.html';
+            userBtn.setAttribute('aria-label', getTranslation('auth_login') || 'Iniciar Sesión');
+        }
     }
 
     // Header Cart button functionality
@@ -155,9 +177,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (headerCartBtn) {
         headerCartBtn.addEventListener('click', () => {
             if (cartCount === 0) {
-                alert('Tu carrito está vacío.');
+                alert(getTranslation('alert_cart_empty'));
             } else {
-                alert(`Tienes ${cartCount} artículos en tu carrito. Ir al checkout...`);
+                alert(getTranslation('alert_cart_items', { count: cartCount }));
             }
         });
     }
